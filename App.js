@@ -3,6 +3,11 @@ const express=require('express');
 const app=express();
 const PORT=process.env.PORT || 3000;
 
+app.use((req,res,next)=>{
+    console.log(`${req.method} ${req.url} ${new Date()}`);
+    next();
+});
+
 app.get('/',(req,res)=>{
     res.send('My week 2 API');
 });
